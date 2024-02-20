@@ -109,6 +109,7 @@ services:
       - LAGO_KAFKA_BOOTSTRAP_SERVERS=redpanda:9092
       - LAGO_KAFKA_RAW_EVENTS_TOPIC=events-raw
       - LAGO_KAFKA_CLICKHOUSE_CONSUMER_GROUP=clickhouse-consumer
+      - JACKSON_URL=https://oauth.lago.dev
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.api_http.rule=Host(`api.lago.dev`)"
@@ -333,6 +334,7 @@ services:
       NEXTAUTH_SECRET: secret
       NEXTAUTH_ADMIN_CREDENTIALS: oauth@getlago.com:sso
       JACKSON_API_KEYS: secret
+      IDP_ENABLED: true
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.oauth.rule=Host(`oauth.lago.dev`)"
